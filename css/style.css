@@ -53,12 +53,21 @@ body {
     height: 35px;
 }
 
+/*
+For example if I want the logo to have on hover animations. I would apply hover trigger over to .logo-box and the actual animation to .logo
+
+.logo-box:hover .logo {
+    animation: moveInRight 0.6s ease-in;
+}
+*/
+
 /*Header Text container div(Position)*/
 .text-box {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 /*Both lines of Header Text (Styling)*/
@@ -68,6 +77,7 @@ body {
 
     /*Stops the two lines in header from doing little shift up at the end of animation*/
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 /*First line of Header Text(Styling)*/
@@ -149,3 +159,47 @@ Must define 0% and 100% at minimum.
         transform: translateX(0);
     }
 }
+
+/*Default button Stylings*/
+
+/*Button Pseudo classes defined here!*/
+/*:link and :visited are two of the many pseudo classes . These are used to style elements under special conditions.
+
+:link and :visited are together so it has the same look from the time user sees it and even after the user clicks link in this case
+ */
+.btn:link,
+.btn:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all .2s ;
+}
+
+.btn:hover {
+ /*On the Y axis coordinates move from top being -100% and bottom being 100%. Meaning 3px will have this element move down 3px*/   
+    transform: translateY(-3px);
+
+/*box-shadow: (X) (Y) (Blur)*/
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+/*Each pseudo class that is transformed will be in relative to initial state/position*/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+
+/*White button styling*/
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
+/*padding, margins, etc: Top Bottom Left Right(4 values) -OR- padding, margins, etc:Top&Bottom Left&Right(2 values) -OR- Specify each individually*/
+    padding: 15px 40px;
+
+/*display:block gives this element its own space and making it inline with parent element*/
+    display: inline-block;
+    animation: moveInUp 1s ease-out;
+}
+

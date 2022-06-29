@@ -65,29 +65,87 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    /*Stops the two lines in header from doing little shift up at the end of animation*/
+    backface-visibility: hidden;
 }
 
-/*Second line of Header Text(Styling)*/
+/*First line of Header Text(Styling)*/
 .heading-primary-main {
     display: block;
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    
+
+/*Calling the animation to this div*/
+    animation-name: moveInLeft;
+
+/*Animation total time duration*/
+    animation-duration: 1.3s;
+
+/*Animation timing in a more specific fashion*/
+    animation-timing-function: ease-out;
+
+    /*Other useful animation fx
+ >>>>>   animation-delay: (X)seconds;
+ >>>>>   animation-iteration-count: (X);
+    */
 }
 
-/*First line of Header Text (Styling)*/
+/*Second line of Header Text (Styling)*/
 .heading-primary-sub {
     display: block;
     font-size: 20px;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 17px;
+    padding-left: 6px;
+    
+
+/*Calling the animation to this div in a more condensed way
+Same way as writing:
+
+    animation-name: moveInRight
+    animation-duration: 1.3s;
+    animation-timing-function: ease-out;
+    All in one!
+*/
+    animation: moveInRight 1s ease-out;
 }
 
-/*Animation keyframes*/
-@keyframes moveInLeft
+/*Animation keyframes
+-Keep opacity 0 to 1 for clean transition.UNLESS specified.
+Must define 0% and 100% at minimum.
+-Give animations meaningful names that make sense.
+*/
+@keyframes moveInLeft{
     0% {
+        opacity: 0;
+        transform: translateX(-100px);
 
+    }
+    80%{
+        transform: translateX(10px);
     }
     100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
 
     }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

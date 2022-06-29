@@ -55,11 +55,11 @@ body {
 
 /*
 For example if I want the logo to have on hover animations. I would apply hover trigger over to .logo-box and the actual animation to .logo
-
+*/
 .logo-box:hover .logo {
     animation: moveInRight 0.6s ease-in;
 }
-*/
+
 
 /*Header Text container div(Position)*/
 .text-box {
@@ -189,6 +189,11 @@ Must define 0% and 100% at minimum.
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
+/*Echo animation on button*/
+/*Here we are creating a pseudo element that will go behind button*/
+btn::after { 
+    content:"";
+}
 
 /*White button styling*/
 .btn-white {
@@ -202,4 +207,5 @@ Must define 0% and 100% at minimum.
     display: inline-block;
     animation: moveInUp 1s ease-out;
 }
+
 

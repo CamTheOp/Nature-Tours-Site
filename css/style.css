@@ -252,5 +252,5 @@ Must define 0% and 100% at minimum.
 /*Animation-fill: backwards; is basically giving the initial button 0% opacity in the beginning in this case*/
 animation-fill-mode: backwards;
 }
-
+/
 

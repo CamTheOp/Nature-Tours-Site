@@ -168,7 +168,7 @@ Must define 0% and 100% at minimum.
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(-3px);
     }
 }
 /*Default button Stylings*/
@@ -227,9 +227,9 @@ Must define 0% and 100% at minimum.
 
 /*The code below means (btn-white) when being hovered on we will want certain styles to pseudo element of (btn-white::after) in this case*/
 .btn-white:hover::after {
-    transform: scalex(1.4) scaleY(1.6);
-    opacity: 0;
     
+    opacity: 0;
+    transform: scalex(1.4) scaleY(1.6);
 }
 
 /*White button styling*/
@@ -252,5 +252,5 @@ Must define 0% and 100% at minimum.
 /*Animation-fill: backwards; is basically giving the initial button 0% opacity in the beginning in this case*/
 animation-fill-mode: backwards;
 }
-/
+
 

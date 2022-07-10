@@ -38,9 +38,9 @@ body {
     height: 95vh;
     background-image: linear-gradient(to right bottom,
             /*Gradient flow direction*/
-            #7ed56fcc,
+            hsla($color-primary-light, 0.8),
             /*Gradient color 1*/
-            #28b485cc),
+            hsla($color-primary-dark, 0.8)),
         /*Gradient color 2*/
         url(../img/hero.jpg);
     /*Image covered by Gradient*/

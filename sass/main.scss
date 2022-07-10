@@ -4,7 +4,7 @@
 
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
-$color-primary-dark: #28b485;
+$color-primary-dark: rgb(39, 180, 133);
 
 
 *,
@@ -38,9 +38,9 @@ body {
     height: 95vh;
     background-image: linear-gradient(to right bottom,
             /*Gradient flow direction*/
-            hsla($color-primary-light, 0.8),
+            rgba($color-primary-light, 0.8),
             /*Gradient color 1*/
-            hsla($color-primary-dark, 0.8)),
+            rgba($color-primary-dark, 0.8)),
         /*Gradient color 2*/
         url(../img/hero.jpg);
     /*Image covered by Gradient*/

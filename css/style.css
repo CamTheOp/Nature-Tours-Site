@@ -1,0 +1,198 @@
+/*Browser default styling Reset for all elements and pseudo elements*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  /*Good CSS practices in case you use a plugin with a set border-box*/
+  box-sizing: inherit; }
+
+/*Setting root font size. It is 62.5% because the default browser font is 16px. If we leave at pixels then user won't be able to adjust font size correctly. 62.5%=(10/16)*100*/
+html {
+  font-size: 62.5%; }
+
+/*Default styling for body of page*/
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
+
+/*Hero Image and filter gradient*/
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(39, 180, 133, 0.8)), url(../img/hero.jpg);
+  /*Image covered by Gradient*/
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+
+/*Logo container div(image position)*/
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
+
+/*Logo Image (size)*/
+.header__logo {
+  height: 3.5rem; }
+
+/*
+For example if I want the logo to have on hover animations. I would apply hover trigger over to .logo-box and the actual animation to .logo
+
+.logo-box:hover .logo {
+    animation: moveInRight 0.6s ease-in;
+}
+*/
+/*Header Text container div(Position)*/
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+/*Both lines of Header Text (Styling)*/
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*Stops the two lines in header from doing little shift up at the end of animation*/
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+
+/*First line of Header Text(Styling)*/
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /*Calling the animation to this div*/
+  animation-name: moveInLeft;
+  /*Animation total time duration*/
+  animation-duration: 1.3s;
+  /*Animation timing in a more specific fashion*/
+  animation-timing-function: ease-out;
+  /*Other useful animation fx
+ >>>>>   animation-delay: (X)seconds;
+ >>>>>   animation-iteration-count: (X);
+    */ }
+
+/*Second line of Header Text (Styling)*/
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.7rem;
+  padding-left: .6rem;
+  /*Calling the animation to this div in a more condensed way
+Same way as writing:
+
+    animation-name: moveInRight
+    animation-duration: 1.3s;
+    animation-timing-function: ease-out;
+    All in one!
+*/
+  animation: moveInRight 1s ease-out; }
+
+/*Animation keyframes
+-Keep opacity 0 to 1 for clean transition.UNLESS specified.
+Must define 0% and 100% at minimum.
+-Give animations meaningful names that make sense.
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(-0.3rem); } }
+
+/*Default button Stylings*/
+/*Button Pseudo classes defined here!*/
+/*:link and :visited are two of the many pseudo classes . These are used to style elements under special conditions.
+
+:link and :visited are together so it has the same look from the time user sees it and even after the user clicks link in this case
+ */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10rem;
+  transition: all .2s;
+  /*This is so that the pseudo element(btn::after) used below can look at this element as the parent element*/
+  position: relative;
+  font-size: 1.6rem; }
+
+.btn:hover {
+  /*On the Y axis coordinates move from top being -100% and bottom being 100%. Meaning 3px will have this element move down 3px*/
+  transform: translateY(-0.3rem);
+  /*box-shadow: (X) (Y) (Blur)*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+
+.btn:active {
+  /*Each pseudo class that is transformed will be in relative to initial state/position*/
+  transform: translateY(-0.1rem);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.18); }
+
+/*Echo animation on button*/
+/*Here we are creating a pseudo element that will go behind button*/
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .8s; }
+
+/*Styling for pseudo element hidden behind button on header*/
+.btn--white::after {
+  background-color: #fff; }
+
+/*The code below means (btn-white) when being hovered on we will want certain styles to pseudo element of (btn-white::after) in this case*/
+.btn--white:hover::after {
+  opacity: 0;
+  transform: scalex(1.4) scaleY(1.6); }
+
+/*White button styling*/
+.btn--white {
+  background-color: #fff;
+  color: #777;
+  /*padding, margins, etc: Top Bottom Left Right(4 values) -OR- padding, margins, etc:Top&Bottom Left&Right(2 values) -OR- Specify each individually*/
+  padding: 1.5rem 4rem;
+  /*display:block gives this element its own space and making it inline with parent element*/
+  display: inline-block; }
+
+/*This is where we apply our intro animation for moveInBtn. It has its own class. .75s is the delay*/
+.btn--animated {
+  transform: translateY(-0.3rem);
+  animation: moveInBtn .5s ease-out .75s;
+  /*Animation-fill: backwards; is basically giving the initial button 0% opacity in the beginning in this case*/
+  animation-fill-mode: backwards; }

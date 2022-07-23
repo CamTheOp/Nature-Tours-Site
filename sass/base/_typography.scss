@@ -1,0 +1,62 @@
+body {
+    /*Default styling for body of page*/
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+}
+.heading-primary {
+    /*Both lines of Header Text (Styling)*/
+    color: $color-white;
+    text-transform: uppercase;
+
+    /*Stops the two lines in header from doing little shift up at the end of animation*/
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &--main {
+        /*First line of Header Text(Styling)*/
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+
+
+        /*Calling the animation to this div*/
+        animation-name: moveInLeft;
+
+        /*Animation total time duration*/
+        animation-duration: 1.3s;
+
+        /*Animation timing in a more specific fashion*/
+        animation-timing-function: ease-out;
+
+        /*Other useful animation fx
+     >>>>>   animation-delay: (X)seconds;
+     >>>>>   animation-iteration-count: (X);
+        */
+    }
+
+    &--sub {
+        /*Second line of Header Text (Styling)*/
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+        padding-left: .6rem;
+
+
+        /*Calling the animation to this div in a more condensed way
+    Same way as writing:
+    
+        animation-name: moveInRight
+        animation-duration: 1.3s;
+        animation-timing-function: ease-out;
+        All in one!
+    */
+        animation: moveInRight 1s ease-out;
+    }
+
+}

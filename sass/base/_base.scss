@@ -1,0 +1,21 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+
+    /*Good CSS practices in case you use a plugin with a set border-box*/
+    box-sizing: inherit;
+}
+
+
+html {
+    /*Setting root font size. It is 62.5% because the default browser font is 16px. If we leave at pixels then user won't be able to adjust font size correctly. 62.5%=(10/16)*100>>> Defines 1 rem for page*/
+    font-size: 62.5%;
+}
+
+
+body {
+    /*Default styling for body of page*/
+    box-sizing: border-box;
+}

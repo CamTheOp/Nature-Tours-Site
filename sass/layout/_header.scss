@@ -1,0 +1,48 @@
+.header {
+    /*Hero Image and filter gradient*/
+    height: 95vh;
+    background-image: linear-gradient(to right bottom,
+            /*Gradient flow direction*/
+            rgba($color-primary-light, 0.8),
+            /*Gradient color 1*/
+            rgba($color-primary-dark, 0.8)),
+        /*Gradient color 2*/
+        url(../img/hero.jpg);
+    /*Image covered by Gradient*/
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+
+    &__logo-box {
+        /*Logo container div(image position)*/
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        /*Logo Image (size)*/
+        height: 3.5rem;
+
+    }
+
+    /*
+For example if I want the logo to have on hover animations. I would apply hover trigger over to .logo-box and the actual animation to .logo
+
+.logo-box:hover .logo {
+    animation: moveInRight 0.6s ease-in;
+}
+*/
+
+    &__text-box {
+        /*Header Text container div(Position)*/
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

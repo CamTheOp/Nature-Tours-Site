@@ -1,0 +1,85 @@
+.btn {
+    /*Default button Stylings*/
+
+    /*Button Pseudo classes defined here!*/
+    /*:link and :visited are two of the many pseudo classes . These are used to style elements under special conditions.
+    
+:link and :visited are together so it has the same look from the time user sees it and even after the user clicks link in this case
+*/
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 10rem;
+        transition: all .2s;
+        /*This is so that the pseudo element(btn::after) used below can look at this element as the parent element*/
+        position: relative;
+        font-size: 1.6rem;
+
+    }
+
+    &:hover {
+        /*On the Y axis coordinates move from top being -100% and bottom being 100%. Meaning 3px will have this element move down 3px*/
+        transform: translateY(-.3rem);
+
+        /*box-shadow: (X) (Y) (Blur)*/
+        box-shadow: 0 10px 20px rgba($color-black, .3);
+
+        &::after {
+            /*The code below means (btn-white) when being hovered on we will want certain styles to pseudo element of (btn-white::after) in this case*/
+
+            opacity: 0;
+            transform: scalex(1.4) scaleY(1.6);
+        }
+    }
+
+    &:active {
+        /*Each pseudo class that is transformed will be in relative to initial state/position*/
+        transform: translateY(-.1rem);
+        box-shadow: 0 5px 10px rgba($color-black, .18);
+    }
+
+
+    &::after {
+        /*Echo animation on button*/
+        /*Here we are creating a pseudo element that will go behind button*/
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        transition: all .8s;
+    }
+
+    &--white {
+        /*White button styling*/
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        /*padding, margins, etc: Top Bottom Left Right(4 values) -OR- padding, margins, etc:Top&Bottom Left&Right(2 values) -OR- Specify each individually*/
+        padding: 1.5rem 4rem;
+
+        /*display:block gives this element its own space and making it inline with parent element*/
+        display: inline-block;
+
+        &::after {
+            /*Styling for pseudo element hidden behind button on header*/
+            background-color: $color-white;
+        }
+    }
+
+    &--animated {
+        /*This is where we apply our intro animation for moveInBtn. It has its own class. .75s is the delay*/
+        transform: translateY(-.3rem);
+        animation: moveInBtn .5s ease-out .75s;
+
+        /*Animation-fill: backwards; is basically giving the initial button 0% opacity in the beginning in this case*/
+        animation-fill-mode: backwards;
+    }
+}
